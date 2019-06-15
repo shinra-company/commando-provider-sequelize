@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/shinra-company/commando-provider-sequelize/issues"
   },
-  "homepage": "https://github.com/shinra-company/commando-provider-sequelize#readme"
+  "homepage": "https://github.com/shinra-company/commando-provider-sequelize#readme",
+  "dependencies": {
+    "discord.js-commando": "github:discordjs/commando"
+  }
 }
