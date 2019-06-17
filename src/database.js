@@ -3,7 +3,7 @@ const Sequelize = require('sequelize')
 const { DB } = process.env
 const database = new Sequelize(DB, { logging: false })
 
-class Postgres {
+class Database {
   constructor (logger = console) {
     this.logger = console
   }
@@ -23,9 +23,9 @@ class Postgres {
       .catch(error => {
         this.logger.error(`[POSTGRES]: Unable to connect to the database: \n${error}`)
         this.logger.error(`[POSTGRES]: Try reconnecting in 5 seconds...`)
-        setTimeout(() => Postgres.start(), 5000)
+        setTimeout(() => Database.start(), 5000)
       })
   }
 }
 
-module.exports = Postgres
+module.exports = Database
