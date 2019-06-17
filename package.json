@@ -16,7 +16,8 @@
     "url": "https://github.com/shinra-company/commando-provider-sequelize/issues"
   },
   "homepage": "https://github.com/shinra-company/commando-provider-sequelize#readme",
-  "dependencies": {
-    "discord.js-commando": "github:discordjs/commando"
+  "peerDependencies": {
+    "discord.js-commando": "github:discordjs/commando",
+    "sequelize": "^5.8.10"
   }
 }
