@@ -1,15 +1,9 @@
 const Sequelize = require('sequelize')
 
-const { DB } = process.env
-const database = new Sequelize(DB, { logging: false })
-
 class Database {
-  constructor (logger = console) {
+  constructor (url, logger = console) {
     this.logger = console
-  }
-
-  static get db () {
-    return database
+    this.client = new Sequelize(DATBASE_URL, { logging: false })
   }
 
   static start () {
