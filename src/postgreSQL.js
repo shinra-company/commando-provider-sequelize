@@ -1,9 +1,14 @@
 const Sequelize = require('sequelize')
 
+let database = null
+
 class Database {
   constructor (url, logger = console) {
     this.logger = console
-    this.client = new Sequelize(DATBASE_URL, { logging: false })
+    if (!database) {
+      database = new Sequelize(DATBASE_URL, { logging: false })
+    }
+    this.client = database
   }
 
   static start () {
