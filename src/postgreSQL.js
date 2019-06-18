@@ -4,9 +4,9 @@ let database = null
 
 class Database {
   constructor (url, logger = console) {
-    this.logger = console
+    this.logger = logger
     if (!database) {
-      database = new Sequelize(DATBASE_URL, { logging: false })
+      database = new Sequelize(url, { logging: false })
     }
     this.client = database
   }
