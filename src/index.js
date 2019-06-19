@@ -1,4 +1,4 @@
-const Database = require('./postgreSQL')
+const PostgreSQL = require('./postgreSQL')
 const SequelizeProvider = require('./sequelizeProvider')
 
-module.exports = { Database, SequelizeProvider }
+module.exports = { PostgreSQL, SequelizeProvider }
