@@ -1,30 +1,41 @@
 const Sequelize = require('sequelize')
 
-let database = null
+let _database = null
+let _logger = console
 
-class Database {
-  constructor (url, logger = console) {
-    this.logger = logger
-    if (!database) {
-      database = new Sequelize(url, { logging: false })
+class PostgreSQL {
+  constructor (url, logger) {
+    if (!_database) {
+      _database = new Sequelize(url, { logging: false })
     }
-    this.client = database
+
+    if (logger) {
+      _logger = logger
+    }
+  }
+
+  static get db () {
+    return _database
+  }
+
+  static get logger () {
+    return _logger
   }
 
   static start () {
-    database.authenticate()
-      .then(() => this.logger.info('[POSTGRES]: Connection to database has been established successfully.'))
-      .then(() => this.logger.info('[POSTGRES]: Synchronizing database...'))
-      .then(() => database.sync()
-        .then(() => this.logger.info('[POSTGRES]: Done Synchronizing database!'))
-        .catch(error => this.logger.error(`[POSTGRES]: Error synchronizing the database: \n${error}`))
+    _database.authenticate()
+      .then(() => _logger.info('[POSTGRES]: Connection to database has been established successfully.'))
+      .then(() => _logger.info('[POSTGRES]: Synchronizing database...'))
+      .then(() => _database.sync()
+        .then(() => _logger.info('[POSTGRES]: Done Synchronizing database!'))
+        .catch(error => _logger.error(`[POSTGRES]: Error synchronizing the database: \n${error}`))
       )
       .catch(error => {
-        this.logger.error(`[POSTGRES]: Unable to connect to the database: \n${error}`)
-        this.logger.error(`[POSTGRES]: Try reconnecting in 5 seconds...`)
-        setTimeout(() => Database.start(), 5000)
+        PostgreSQL.logger.error(`[POSTGRES]: Unable to connect to the database: \n${error}`)
+        PostgreSQL.logger.error(`[POSTGRES]: Try reconnecting in 5 seconds...`)
+        setTimeout(() => PostgreSQL.start(), 5000)
       })
   }
 }
 
-module.exports = Database
+module.exports = PostgreSQL
