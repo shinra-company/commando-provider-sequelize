@@ -1,12 +1,14 @@
 const Sequelize = require('sequelize')
 
+const 
+
 let _database = null
 let _logger = console
 
 class PostgreSQL {
   constructor (url, logger) {
     if (!_database) {
-      _database = new Sequelize(url, { logging: false })
+      _database = new Sequelize(url, { logging: false, dialect: 'postgres' })
     }
 
     if (logger) {
