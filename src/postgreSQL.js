@@ -12,6 +12,9 @@ class PostgreSQL {
     if (logger) {
       _logger = logger
     }
+
+    this.database = _database
+    this.logger = _logger
   }
 
   static get db () {
