@@ -1,0 +1,25 @@
+{
+  "name": "commando-provider-sequelize",
+  "version": "1.0.0",
+  "description": "Sequelize provider for discord.js Commando",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinra-company/commando-provider-sequelize.git"
+  },
+  "author": "SHIN-RA©神羅カンパニー",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shinra-company/commando-provider-sequelize/issues"
+  },
+  "homepage": "https://github.com/shinra-company/commando-provider-sequelize#readme",
+  "peerDependencies": {
+    "discord.js-commando": "github:discordjs/commando",
+    "pg": "^7.11.0",
+    "sequelize": "^5.8.12",
+    "pg-hstore": "^2.3.3"
+  }
+}
