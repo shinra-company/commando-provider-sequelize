@@ -19,6 +19,6 @@
   "peerDependencies": {
     "discord.js-commando": "github:discordjs/commando",
     "pg": "^7.11.0",
-    "sequelize": "^5.8.10"
+    "sequelize": "^5.8.12"
   }
 }
