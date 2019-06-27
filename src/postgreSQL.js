@@ -8,7 +8,7 @@ let _logger = console
 class PostgreSQL {
   constructor (url, logger) {
     if (!_database) {
-      _database = new Sequelize(url, { logging: false, dialect: POSTGRES })
+      _database = new Sequelize(url, { logging: false })
     }
 
     if (logger) {
