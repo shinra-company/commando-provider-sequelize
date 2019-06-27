@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize')
 
-const POSTGRES = 'postgres'
-
 let _database = null
 let _logger = console
 
